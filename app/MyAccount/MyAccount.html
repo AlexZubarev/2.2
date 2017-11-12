@@ -1,23 +1,41 @@
-
 <form class="form-horizontal" name="myaccount" novalidate data-layout="row" ng-submit="submit()" ng-controller="MyAccountCtrl">
+
     <div class="form-group">
         <label for="inputName" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-10">
-            <input id="inputName" type="text" class="form-control" ng-model="myaccount.name" required>
+            <input id="inputName" name="test" type="text" class="form-control" ng-model="myaccount.name" ng-minlength="5" required>
         </div>
     </div>
+
+    <div ng-messages="myaccount.test.$error" style="color:maroon" role="alert">
+        <div ng-message="required">You did not enter a field</div>
+        <div ng-message="minlength">Your field is too short</div>
+    </div>
+
     <div class="form-group">
         <label for="inputEmail" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">
-            <input id="inputEmail" type="email" class="form-control" ng-model="myaccount.email" required>
+            <input id="inputEmail" name="test2" type="email" class="form-control" ng-model="myaccount.email" ng-minlength="5" required>
         </div>
     </div>
+
+    <div ng-messages="myaccount.test2.$error" style="color:maroon" role="alert">
+        <div ng-message="required">You did not enter a field</div>
+        <div ng-message="minlength">Your field is too short</div>
+    </div>
+
     <div class="form-group">
         <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
         <div class="col-sm-10">
-            <input id="inputPhone" type="tel" pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}" class="form-control" ng-model="myaccount.phone">
+            <input id="inputPhone" name="test3" type="tel" pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}" class="form-control" ng-model="myaccount.phone" ng-minlength="5" required>
         </div>
     </div>
+
+    <div ng-messages="myaccount.test3.$error" style="color:maroon" role="alert">
+            <div ng-message="required">You did not enter a field</div>
+            <div ng-message="minlength">Your field is too short</div>
+    </div>
+
     <div class="form-group">
         <button class="btn-call-to-action btn btn-primary">
             Save
